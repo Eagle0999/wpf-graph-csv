@@ -22,3 +22,28 @@ D:\C# graph\WpfGraph\WpfGraph\obj\Debug\WpfGraph.exe
 D:\C# graph\WpfGraph\WpfGraph\obj\Debug\WpfGraph.pdb
 D:\C# graph\WpfGraph\WpfGraph\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\C# graph\WpfGraph\WpfGraph\obj\Debug\WpfGraph_MarkupCompile.lref
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\WpfGraph.exe.config
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\WpfGraph.exe
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\WpfGraph.pdb
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\OxyPlot.dll
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\OxyPlot.WindowsForms.dll
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\OxyPlot.xml
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\OxyPlot.WindowsForms.xml
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\Graph.g.cs
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\MainWindow.g.cs
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\App.g.cs
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph_MarkupCompile.cache
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph_MarkupCompile.lref
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\Graph.baml
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\MainWindow.baml
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.g.resources
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.Properties.Resources.resources
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.csproj.GenerateResource.cache
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.csproj.CoreCompileInputs.cache
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.csproj.CopyComplete
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.exe
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.pdb
+C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\WpfGraph.csprojAssemblyReference.cache

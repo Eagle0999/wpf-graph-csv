@@ -3,33 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local1="clr-namespace:WpfGraph"
-        Title="WpfTableBuilder" Height="350" Width="525">
+        Title="WpfTableBuilder" Height="600" Width="600">
     <Window.DataContext>
         <local1:MainViewModel/>
     </Window.DataContext>
+        <Grid>
+            <Grid Margin="0,-4,30,-8"  >
+                <Grid.RowDefinitions >
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-    <Grid>
+            <Button Click="BtnClickCSV" Content="Получить данные"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-  
-        </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="0"  Text="{Binding TextTest }" />
-        <Grid Grid.Column="2" Grid.RowSpan="2">
-            
-            <oxy:Plot Title="{Binding Title}">
+            <oxy:Plot Grid.Column="1" Grid.RowSpan="2" Title="{Binding Title}"  >
                 <oxy:Plot.Series>
                     <oxy:LineSeries ItemsSource="{Binding Points}"/>
                 </oxy:Plot.Series>
             </oxy:Plot>
         </Grid>
     </Grid>
+    
 </Window>

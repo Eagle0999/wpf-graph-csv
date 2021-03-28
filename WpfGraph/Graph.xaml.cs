@@ -21,12 +21,20 @@ namespace WpfGraph
     /// </summary>
     public partial class Graph : Window
     {
+
+    
         public Graph()
         {
-            MainViewModel model = new MainViewModel();
-           // model.BuilderViewModel();
-            InitializeComponent();
             
+            InitializeComponent();
+            MainViewModel model = new MainViewModel();
+        }
+
+        private void BtnClickCSV(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Hide();
         }
     }
 
@@ -37,52 +45,18 @@ namespace WpfGraph
         
         public MainViewModel()
         {
-            PersonBuilder persons = new PersonBuilder();
+            //   MainViewModel model = new MainViewModel();
+            //PersonBuilder person = new PersonBuilder();
+            Content content = new Content();
             this.Title = "Graph Builderrr";
-            this.Points = new List<DataPoint>
-                               {
-                                    
-                                   new DataPoint(0, 0),
-                                  // new DataPoint(33, 66)
-                                   
-                               };
+            this.Points = new List<DataPoint> { new DataPoint(0, 0) };
+
             
-               for (int i = 0; i < 10; i++)
+               for (int i = 0; i < Content.VectorX.Length; i++)
                {
-                   Points.Add(new DataPoint(i, i+60));
+                   Points.Add(new DataPoint(Content.VectorX[i], Content.VectorY[i]));
                }
-
-
-            foreach (var i in persons.Persons)
-                TextTest += i.VectorX;
-            /*foreach (var i in persons.Persons)
-            {
-                
-                Points.Add(new DataPoint(i.VectorX, i.VectorY));
-            }*/
-
-
-            //Points.Add((DataPoint)persons.Persons);
-            //  Points.Add(new DataPoint(10,13));
-            /*for (int i = 2; i < 10; i++)
-            {
-                Points = new List<DataPoint>
-                              {
-                                  new DataPoint(i, i+5),
-            
-                              };
-            }*/
-
-            /*foreach (var i in persons.Persons)
-                this.Points = new List<DataPoint> {
-                                  new DataPoint(0, 4),
-                                  new DataPoint(10, 13),
-                                  new DataPoint(20, 15),
-                                  new DataPoint(30, 16),
-                                  new DataPoint(40, 12),
-                                  new DataPoint(50, 12)
-                };
-            */
+               
         }
 
 
@@ -99,20 +73,6 @@ namespace WpfGraph
                                   new DataPoint(50, 12)
                               }; 
 
-           /*
-            double[] vectorX = new double[graph.persons.Count];
-            double[] vectorY = new double[graph.persons.Count];
-            int ch = 0;
-            foreach (var i in graph.persons)
-            {
-                vectorX[ch] = i.VectorX;
-                vectorY[ch] = i.VectorY;
-                ch += 1;
-            }
-            */
-               
-                 
-
 
         }
 
@@ -128,6 +88,10 @@ namespace WpfGraph
 
 
     }
+
+
+    
+
 }
 
 

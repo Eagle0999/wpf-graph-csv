@@ -9,7 +9,7 @@ namespace WpfGraph
     class PersonBuilder : Person
     {
         public List<Person> Persons = new List<Person>();
-
+  
         public void AddedX(double vectorX)
         {
             Person person = new Person();
