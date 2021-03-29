@@ -16,6 +16,8 @@ using Microsoft.Win32;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using System.Threading;
+
 
 namespace WpfGraph
 {
@@ -43,22 +45,36 @@ namespace WpfGraph
                 ListViewPeople.ItemsSource = p.ReadCSV(p.pathName);
                 p.ReadFile();
             }
+
+            
          }
+
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
 
         private void BtnGraphClick(object sender, RoutedEventArgs e)
         {
-            try
-            {
+
+           
+                
+                try
+                {
                 Graph graphWindow = new Graph();
                 graphWindow.Show();
-                Hide();
-            }
-           catch { MessageBox.Show("Укажите путь к файлу .csv"); }
+
+                }
+                catch { MessageBox.Show("Укажите путь к файлу .csv"); }
+
+
         }
+          
     }
 
+  }
 
 
-
-
-}

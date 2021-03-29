@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local1="clr-namespace:WpfGraph"
-        Title="Table Builder" Height="350" Width="525">
-    <Grid>
+        Title="Таблица" MinHeight="600" MinWidth="700" FontSize="16" WindowStyle="ThreeDBorderWindow" MaxHeight="620" MaxWidth="720">
+    <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="117*" />
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -15,17 +15,18 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button x:Name="BtnPath" Click="BtnPathClick" Grid.Column="0"  Content="Путь к файлу" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="BtnGraph" Click="BtnGraphClick"  Grid.Row="1"  Content="Построить график" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="TxtCheck" Grid.Row="2"/>
-        <ListView  Grid.Column="1" Grid.RowSpan="2" x:Name="ListViewPeople" >
+        <Button x:Name="BtnPath" Click="BtnPathClick" Grid.Column="0"  Content="Путь к файлу" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28"  Width="102" Margin="10,70,0,70" />
+        <Button x:Name="BtnGraph" Click="BtnGraphClick"  Grid.Row="1"  Content="Построить график" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28"  Width="140" Margin="10,70,0,70"/>
+        <ListView  Grid.Column="1" Grid.RowSpan="3" x:Name="ListViewPeople"  >
             <ListView.View>
-                <GridView>
-                    <GridViewColumn x:Name="ElementX" Header="Vector X" Width="100" DisplayMemberBinding="{Binding Path=VectorX}"/>
-                    <GridViewColumn x:Name="ElementY" Header="Vector Y" Width="150" DisplayMemberBinding="{Binding Path=VectorY}"/>
+                <GridView >
+                    <GridViewColumn x:Name="ElementX" Header="Vector X" Width="250"  DisplayMemberBinding="{Binding Path=VectorX}"/>
+                    <GridViewColumn x:Name="ElementY" Header="Vector Y" Width="300"  DisplayMemberBinding="{Binding Path=VectorY}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+
+
     </Grid>
 
 </Window>

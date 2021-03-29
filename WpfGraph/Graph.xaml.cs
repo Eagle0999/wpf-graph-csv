@@ -28,14 +28,11 @@ namespace WpfGraph
             
             InitializeComponent();
             MainViewModel model = new MainViewModel();
+
         }
 
-        private void BtnClickCSV(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Hide();
-        }
+        
+     
     }
 
 
@@ -48,7 +45,7 @@ namespace WpfGraph
             //   MainViewModel model = new MainViewModel();
             //PersonBuilder person = new PersonBuilder();
             Content content = new Content();
-            this.Title = "Graph Builderrr";
+            this.Title = "График";
             this.Points = new List<DataPoint> { new DataPoint(0, 0) };
 
             
@@ -59,7 +56,7 @@ namespace WpfGraph
                
         }
 
-
+        /*
         public void BuilderViewModel()
             {
             Title = "Graph BuilderRRR";
@@ -75,6 +72,7 @@ namespace WpfGraph
 
 
         }
+        */
 
         public string Title { get; private set; }
 
@@ -89,7 +87,7 @@ namespace WpfGraph
 
     }
 
-
+   
     
 
 }

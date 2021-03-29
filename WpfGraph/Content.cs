@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfGraph
 {
@@ -40,18 +41,35 @@ namespace WpfGraph
             string[] data = File.ReadAllLines(System.IO.Path.ChangeExtension(pathName, ".csv"));
             // foreach( var i in data)
             //    TxtCheck.Text += i;
-
+            char[] separatorExcel = new char[2];
+            separatorExcel[0] = ';';
+            separatorExcel[1] = ',';
             double[] vectorX = new double[data.Length];
             double[] vectorY = new double[data.Length];
+            bool choice = true;
             // int numberElementStart = 0;
             //  int numberElementEnd = 0;
-            for (int i = 0; i < data.Length; i++)
+            for (int j = 0; j < separatorExcel.Length; j++)
             {
-                vectorX[i] = Convert.ToDouble(data[i].Substring(0, Separator(data, i, ';', 1)));
-                int numberElementStart = Separator(data, i, ';', 1);
-                int numberElementEnd = Separator(data, i, ';', 2) - numberElementStart;
-                vectorY[i] = Convert.ToDouble(data[i].Substring(numberElementStart + 1, numberElementEnd - 1));
+                
+                try
+                {
+
+                    for (int i = 0; i < data.Length; i++)
+                    {
+                        vectorX[i] = Convert.ToDouble(data[i].Substring(0, Separator(data, i, separatorExcel[j], 1)));
+                        int numberElementStart = Separator(data, i, separatorExcel[j], 1);
+                        int numberElementEnd = Separator(data, i, separatorExcel[j], 2) - numberElementStart;
+                        vectorY[i] = Convert.ToDouble(data[i].Substring(numberElementStart + 1, numberElementEnd - 1));
+                    }
+
+                }
+
+                catch { /*MessageBox.Show("Неверный формат разделителя для файла .csv");*/  choice = false; }
+                if (j == 0 && choice == true) break;
+
             }
+            
             VectorX = vectorX;
             VectorY = vectorY;
             /*foreach (int i in vectorX)

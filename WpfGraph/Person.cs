@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,15 +21,6 @@ namespace WpfGraph
         // public string Email { get; set; }
         public Person() { }
 
-        /*
-         public Person(string firstName, string lastName, int id, string email)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            ID = id;
-            Email = email;
-        }
-        */
 
        
         public Person(double vectorX, double vectorY)
@@ -41,3 +33,4 @@ namespace WpfGraph
        
     }
 }
+
