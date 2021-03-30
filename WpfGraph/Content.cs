@@ -13,6 +13,7 @@ namespace WpfGraph
         public static double[] VectorX;
         public static double[] VectorY;
         public string pathName;
+        public static string path;
         public Content() { }
         /*public Content(double[] VectorX, double[] VectorY)
         {

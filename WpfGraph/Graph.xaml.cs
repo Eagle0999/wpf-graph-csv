@@ -1,4 +1,6 @@
-﻿using OxyPlot;
+﻿using Microsoft.Win32;
+using OxyPlot;
+using OxyPlot.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +33,23 @@ namespace WpfGraph
 
         }
 
-        
-     
+        private void Menu_Click_SaveImage(object sender, RoutedEventArgs e)
+        {
+            //Content con = new Content();
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG|Image Files(*.GIF)|*.GIF|Image Files(*.PNG)|*.PNG|All files (*.*)|*.*";
+            Content p = new Content();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                p.pathName = saveFileDialog.FileName;
+                Plot.SaveBitmap(p.pathName, 960, 540, OxyColor.FromRgb(255, 255, 255));
+
+            }
+
+
+            
+        }
     }
 
 
@@ -46,12 +63,13 @@ namespace WpfGraph
             //PersonBuilder person = new PersonBuilder();
             Content content = new Content();
             this.Title = "График";
-            this.Points = new List<DataPoint> { new DataPoint(0, 0) };
+            this.NameX = "x";
+            //this.Points = new List<DataPoint> { new DataPoint(Content.VectorX[0], Content.VectorY[0]) };
+            this.Points = new List<DataPoint>();
 
-            
-               for (int i = 0; i < Content.VectorX.Length; i++)
+            for (int i = 0; i < Content.VectorX.Length; i++)
                {
-                   Points.Add(new DataPoint(Content.VectorX[i], Content.VectorY[i]));
+                this.Points.Add(new DataPoint(Content.VectorX[i], Content.VectorY[i]));
                }
                
         }
@@ -78,7 +96,7 @@ namespace WpfGraph
 
         public IList<DataPoint> Points { get;   private set; }
 
-        public string TextTest { get; set; }
+        public string NameX { get; set; }
 
         //public List<DataPoint> Points2 = new List<DataPoint>();
 
