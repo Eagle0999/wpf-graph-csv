@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,16 @@ using System.Windows;
 
 namespace WpfGraph
 {
-    class Content
+   class Content : MainWindow
     {
+        public  double vectorX2 { get; set; }
+        public  double vectorY2 { get; set; }
         public static double[] VectorX;
-        public static double[] VectorY;
+        public static double[] VectorY; 
         public string pathName;
-        public static string path;
+
+        public List<Content> contents = new List<Content>();
         public Content() { }
-        /*public Content(double[] VectorX, double[] VectorY)
-        {
-            this.VectorX = VectorX;
-            this.VectorY = VectorY;
-        }*/
 
         private int Separator(string[] message, int numberRow, char element, int numberElement)
         {
@@ -37,67 +36,153 @@ namespace WpfGraph
             return i;
 
         }
-        public void ReadFile()
+
+        public static int CheckHeader(string header, string data2, int i)
         {
-            string[] data = File.ReadAllLines(System.IO.Path.ChangeExtension(pathName, ".csv"));
-            // foreach( var i in data)
-            //    TxtCheck.Text += i;
-            char[] separatorExcel = new char[2];
-            separatorExcel[0] = ';';
-            separatorExcel[1] = ',';
-            double[] vectorX = new double[data.Length];
-            double[] vectorY = new double[data.Length];
-            bool choice = true;
-            // int numberElementStart = 0;
-            //  int numberElementEnd = 0;
-            for (int j = 0; j < separatorExcel.Length; j++)
+            int check = 0;
+            for (int j = 0; j < header.Length; j++)
             {
-                
-                try
-                {
-
-                    for (int i = 0; i < data.Length; i++)
-                    {
-                        vectorX[i] = Convert.ToDouble(data[i].Substring(0, Separator(data, i, separatorExcel[j], 1)));
-                        int numberElementStart = Separator(data, i, separatorExcel[j], 1);
-                        int numberElementEnd = Separator(data, i, separatorExcel[j], 2) - numberElementStart;
-                        vectorY[i] = Convert.ToDouble(data[i].Substring(numberElementStart + 1, numberElementEnd - 1));
-                    }
-
-                }
-
-                catch { /*MessageBox.Show("Неверный формат разделителя для файла .csv");*/  choice = false; }
-                if (j == 0 && choice == true) break;
-
+                if (data2[i] == header[j])
+                    check++;
+                i++;
             }
-            
-            VectorX = vectorX;
-            VectorY = vectorY;
-            /*foreach (int i in vectorX)
-                p.AddedX(Convert.ToDouble(i));
 
-            foreach (int i in vectorY)
-                p.AddedY(Convert.ToDouble(i));*/
+
+            return check;
         }
 
-        public IEnumerable<Person> ReadCSV(string fileName)
+
+
+
+        public List<Content> ReadCSV(string fileName, string headerX, string headerY)
         {
             // We change file extension here to make sure it's a .csv file.
             // TODO: Error checking.
-            string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
-
+            // string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
+            string[] data = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
             // lines.Select allows me to project each line as a Person. 
             // This will give me an IEnumerable<Person> back.
-            return lines.Select(line =>
+
+
+            
+            
+            //string headerX = "Freq";
+            // string headerY = "L";
+            int indexHeaderX = 0;
+            int indexHeaderY = 0;
+
+            int indexHeaderX2 = 0;
+            int indexHeaderY2 = 0;
+
+            int counterborderX = 0;
+            int counterborderY = 0;
+            for (int i = 0; i < data.Length; i++)
             {
-                string[] data = line.Split(';');
-                // We return a person with the data in order.
-                // return new Person(data[0], data[1], Convert.ToInt32(data[2]), data[3]);
 
 
-                return new Person(Convert.ToDouble(data[0]), Convert.ToDouble(data[1]));
-            });
-        }
+                if (data[i].Contains(headerX) && counterborderX == 1)
+                {
+                    indexHeaderX2 = i;
+                    counterborderX = 2;
+                }
+
+                if (data[i].Contains(headerX) && counterborderX == 0)
+                {
+                    indexHeaderX = i;
+                    counterborderX = 1;
+                }
+
+                if (data[i].Contains(headerY) && counterborderY == 1)
+                {
+                    indexHeaderY2 = i;
+                    counterborderY = 2;
+                }
+
+                if (data[i].Contains(headerY) && counterborderY == 0)
+                {
+                    indexHeaderY = i;
+                    counterborderY = 1;
+                }
+
+            }
+
+            int counterData = 0;
+            string[] dataX = new string[indexHeaderX2 - indexHeaderX];
+            for (int i = indexHeaderX; i < indexHeaderX2; i++)
+            {
+                dataX[counterData] = ";" + data[i];
+                counterData++;
+            }
+
+            int counterSeparatorHeader = 0;
+            for (int i = 0; i < dataX[0].Length; i++)
+            {
+                if (dataX[0][i] == headerX[0])
+                {
+
+                    int check = CheckHeader(headerX, dataX[0], i);
+                    if (check == headerX.Length)
+                        break;
+                }
+
+                if (dataX[0][i] == ';')
+                    counterSeparatorHeader++;
+            }
+
+            int counterVector = 0;
+            double[] vectorX = new double[dataX.Length - 1];
+            for (int i = 1; i < dataX.Length; i++)
+            {
+
+                int numberElementStart = Separator(dataX, i, ';', counterSeparatorHeader);
+                int numberElementEnd = Separator(dataX, i, ';', counterSeparatorHeader + 1) - numberElementStart;
+                vectorX[counterVector] = Convert.ToDouble(dataX[i].Substring(numberElementStart + 1, numberElementEnd - 1));
+                counterVector++;
+            }
+
+            counterData = 0;
+            string[] dataY = new string[indexHeaderY2 - indexHeaderY];
+            for (int i = indexHeaderY; i < indexHeaderY2; i++)
+            {
+                dataY[counterData] = data[i];
+                counterData++;
+            }
+
+            counterSeparatorHeader = 0;
+            for (int i = 0; i < dataY[0].Length; i++)
+            {
+                if (dataY[0][i] == headerY[0])
+                {
+
+                    int check = CheckHeader(headerY, dataY[0], i);
+                    if (check == headerY.Length)
+                        break;
+                }
+
+                if (dataY[0][i] == ';')
+                    counterSeparatorHeader++;
+            }
+            counterVector = 0;
+            double[] vectorY = new double[dataY.Length - 1];
+            for (int i = 1; i < dataY.Length; i++)
+            {
+                int numberElementStart = Separator(dataY, i, ';', counterSeparatorHeader);
+                int numberElementEnd = Separator(dataY, i, ';', counterSeparatorHeader + 1) - numberElementStart;
+                vectorY[counterVector] = Convert.ToDouble(dataY[i].Substring(numberElementStart + 1, numberElementEnd - 1));
+                counterVector++;
+            }
+
+
+            for (int i = 0; i < vectorX.Length; i++)
+            {
+                contents.Add(new Content() { vectorX2 = vectorX[i], vectorY2 = vectorY[i]});
+            }
+            VectorX = vectorX;
+            VectorY = vectorY;
+            
+            return contents;
+
+    }
 
     }
 }

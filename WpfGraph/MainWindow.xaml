@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local1="clr-namespace:WpfGraph"
-        Title="Таблица" MinHeight="600" MinWidth="700" FontSize="16" WindowStyle="ThreeDBorderWindow" MaxHeight="620" MaxWidth="720">
+        Title="Таблица" MinHeight="600" MinWidth="700" FontSize="16" WindowStyle="ThreeDBorderWindow" MaxHeight="620" MaxWidth="720" >
     <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="35*" />
-            <ColumnDefinition Width="117*" />
+            <ColumnDefinition Width="153*" />
+            <ColumnDefinition Width="227*" />
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -15,13 +15,28 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Button x:Name="BtnPath" Click="BtnPathClick" Grid.Column="0"  Content="Путь к файлу" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28"  Width="102" Margin="10,70,0,70" />
-        <Button x:Name="BtnGraph" Click="BtnGraphClick"  Grid.Row="1"  Content="Построить график" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28"  Width="140" Margin="10,70,0,70"/>
-        <ListView  Grid.Column="1" Grid.RowSpan="3" x:Name="ListViewPeople"  >
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Background="Gold">
+            <Label x:Name="label3" Content="Введите имя заголовка точек по X" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" />
+            <TextBox x:Name="textHeaderX" Height="33" TextWrapping="Wrap"  Margin="0,0,49,0" />
+            <Label x:Name="label4" Content="Введите имя заголовка точек по Y" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" />
+            <TextBox x:Name="textHeaderY" Height="35" TextWrapping="Wrap"  Margin="0,0,49,0"  />
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="Gold">
+            <Label x:Name="label" Content="Кнопки управления" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="21" FontWeight="Bold" />
+            <Button x:Name="BtnPath" Click="BtnPathClick"   Content="Путь к файлу" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="28"  Width="102" Margin="0,18,0,10"  />
+            <Button x:Name="BtnGraph" Click="BtnGraphClick" Content="Построить график" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="28"  Width="140" Margin="0,10,0,0" />
+            <TextBox x:Name="textTest" Height="68" TextWrapping="Wrap" Text="TextBox"/>
+        </StackPanel>
+
+        <Label x:Name="label2" Grid.Column="1" Grid.Row="0" Content="      Данные из таблицы" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Height="48" Margin="90,0,78,0" Width="286" />
+        <ListView  Grid.Column="1" Grid.RowSpan="3" x:Name="ListViewPeople" Background="LightGray" Margin="0,56,0,0">
             <ListView.View>
                 <GridView >
-                    <GridViewColumn x:Name="ElementX" Header="Vector X" Width="250"  DisplayMemberBinding="{Binding Path=VectorX}"/>
-                    <GridViewColumn x:Name="ElementY" Header="Vector Y" Width="300"  DisplayMemberBinding="{Binding Path=VectorY}"/>
+                    <GridViewColumn x:Name="ElementX" Header="Vector X" Width="200"  DisplayMemberBinding="{Binding Path=vectorX2}"/>
+                    <GridViewColumn x:Name="ElementY" Header="Vector Y" Width="200"  DisplayMemberBinding="{Binding Path=vectorY2}"/>
                 </GridView>
             </ListView.View>
         </ListView>

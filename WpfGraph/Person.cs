@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfGraph
 {
-    class Person
+   /* class Person
     {
         public double VectorX { get; set; }
         public double VectorY { get; set; }
@@ -28,9 +28,9 @@ namespace WpfGraph
             VectorX = vectorX;
             VectorY = vectorY;
         }
-
+        
         
        
-    }
+    }*/
 }
 

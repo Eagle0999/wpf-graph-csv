@@ -42,8 +42,10 @@ namespace WpfGraph
             if (openFileDialog.ShowDialog() == true)
             {
                 p.pathName = openFileDialog.FileName;
-                ListViewPeople.ItemsSource = p.ReadCSV(p.pathName);
-                p.ReadFile();
+                string headerX = textHeaderX.Text;
+                string headerY = textHeaderY.Text;
+                ListViewPeople.ItemsSource = p.ReadCSV(p.pathName, headerX, headerY);
+               
             }
 
             
@@ -60,19 +62,18 @@ namespace WpfGraph
         private void BtnGraphClick(object sender, RoutedEventArgs e)
         {
 
-           
-                
-                try
+            try
                 {
-                Graph graphWindow = new Graph();
-                graphWindow.Show();
+                    Graph graphWindow = new Graph();
+                    graphWindow.Show();
 
                 }
                 catch { MessageBox.Show("Укажите путь к файлу .csv"); }
 
 
         }
-          
+
+  
     }
 
   }
