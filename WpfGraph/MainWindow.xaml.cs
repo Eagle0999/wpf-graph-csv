@@ -26,6 +26,7 @@ namespace WpfGraph
     /// </summary>
     public partial class MainWindow : Window
     {
+        public char delimeter;
         
         public MainWindow()
         {
@@ -33,6 +34,7 @@ namespace WpfGraph
             //Person person = new Person();
 
             InitializeComponent();
+          
         }
 
         private void BtnPathClick(object sender, RoutedEventArgs e)
@@ -42,14 +44,11 @@ namespace WpfGraph
             if (openFileDialog.ShowDialog() == true)
             {
                 p.pathName = openFileDialog.FileName;
-                string headerX = textHeaderX.Text;
-                string headerY = textHeaderY.Text;
-                ListViewPeople.ItemsSource = p.ReadCSV(p.pathName, headerX, headerY);
-               
+                ListViewPeople.ItemsSource = p.ReadCSV(p.pathName, textHeaderX.Text, textHeaderY.Text, delimeter);
+
             }
 
-            
-         }
+        }
 
 
         protected override void OnClosed(EventArgs e)
@@ -59,21 +58,38 @@ namespace WpfGraph
             Application.Current.Shutdown();
         }
 
+
+   
         private void BtnGraphClick(object sender, RoutedEventArgs e)
         {
 
-            try
-                {
-                    Graph graphWindow = new Graph();
-                    graphWindow.Show();
+             try
+                 {
+                     Graph graphWindow = new Graph();
+                     graphWindow.Show();
 
-                }
-                catch { MessageBox.Show("Укажите путь к файлу .csv"); }
-
+                 }
+                 catch { MessageBox.Show("Укажите путь к файлу .csv"); }
 
         }
 
-  
+        private void DelimeterListSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            // textDelimeter.Text = delimeterList.SelectedIndex.ToString();
+            int separator = delimeterList.SelectedIndex;
+            switch(separator)
+            {
+                case 0:
+                    delimeter = Convert.ToChar(semicolon.Text);
+                    break;
+                case 1:
+                    delimeter = Convert.ToChar(comma.Text);
+                    break;
+            }
+        }
+
+        
     }
 
   }

@@ -3,11 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local1="clr-namespace:WpfGraph"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         Title="График" MinHeight="600" MinWidth="700" WindowStyle="ThreeDBorderWindow" Height="573">
     <Window.DataContext>
         <local1:MainViewModel/>
     </Window.DataContext>
+    
+    
+    
     <Grid>
+        
         <Grid >
             <Grid.RowDefinitions >
                 <RowDefinition/>
@@ -21,23 +26,35 @@
             </Grid.ColumnDefinitions>
 
 
-            
-            <oxy:Plot Grid.Column="1" Grid.RowSpan="3" Title="{Binding Title}" Name="Plot"  >
+
+            <oxy:Plot Grid.Column="1" Grid.RowSpan="3" Title="{Binding Title}" x:Name="Plot" >
                 <oxy:Plot.Series>
-                    <oxy:LineSeries ItemsSource="{Binding Points}"/>
+                    <oxy:LineSeries ItemsSource="{Binding Points}" DataFieldX="Xname"/>
                 </oxy:Plot.Series>
+
             </oxy:Plot>
             
                 <Label  x:Name="label" Content="y" Grid.Column="0" Grid.RowSpan="3" HorizontalAlignment="Right"  VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Height="42" Width="23"/>
-            <StackPanel Grid.Row="1">
+            <!-- StackPanel Grid.Row="1">
                 <Button  x:Name="button" Content="Сохранить" Height="35" Click="Menu_Click_SaveImage"/>
-            </StackPanel>
+            </ -->
             <Label x:Name="labelg" Content="x" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left"  VerticalAlignment="Bottom" FontSize="24" FontWeight="Bold" Height="42" Width="23"/>
-        </Grid>
+            
 
+        </Grid>
+        
     </Grid>
 
+    <Window.ContextMenu>
+        <ContextMenu>
+            <ContextMenu.ItemsSource>
+                <CompositeCollection>
+                    <MenuItem Header="Сохранить рисунок" Click="MenuClickSaveImage" />
 
+                </CompositeCollection>
+            </ContextMenu.ItemsSource>
+        </ContextMenu>
+    </Window.ContextMenu>
 
 
 

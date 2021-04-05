@@ -26,13 +26,11 @@ namespace WpfGraph
 
     
         public Graph()
-        {
-            
+        {       
             InitializeComponent();
-            MainViewModel model = new MainViewModel();
-
         }
 
+        /*
         private void Menu_Click_SaveImage(object sender, RoutedEventArgs e)
         {
             //Content con = new Content();
@@ -50,28 +48,48 @@ namespace WpfGraph
 
             
         }
+        */
+
+     
+        private  void MenuClickSaveImage(object sender, RoutedEventArgs e)
+        {
+            
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG|Image Files(*.GIF)|*.GIF|Image Files(*.PNG)|*.PNG|All files (*.*)|*.*";
+            Content p = new Content();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                p.pathName = saveFileDialog.FileName;
+                Plot.SaveBitmap(p.pathName, 960, 540, OxyColor.FromRgb(255, 255, 255));
+            }
+            
+            
+        }
     }
 
 
 
     public class MainViewModel
     {
-        
+
         public MainViewModel()
         {
             //   MainViewModel model = new MainViewModel();
             //PersonBuilder person = new PersonBuilder();
-            Content content = new Content();
             this.Title = "График";
             this.NameX = "x";
             //this.Points = new List<DataPoint> { new DataPoint(Content.VectorX[0], Content.VectorY[0]) };
-            this.Points = new List<DataPoint>();
+            Points = new List<DataPoint>();
 
-            for (int i = 0; i < Content.VectorX.Length; i++)
-               {
-                this.Points.Add(new DataPoint(Content.VectorX[i], Content.VectorY[i]));
-               }
-               
+           for (int i = 0; i < Content.VectorX.Length; i++)
+                {
+                   // Content.VectorX[0] = minX;
+                   // Content.VectorY[0] = minY;
+                    this.Points.Add(new DataPoint(Content.VectorX[i], Content.VectorY[i]));
+                }
+                
+            
+        
         }
 
         /*
@@ -94,7 +112,9 @@ namespace WpfGraph
 
         public string Title { get; private set; }
 
-        public IList<DataPoint> Points { get;   private set; }
+       public IList<DataPoint> Points { get;   private set; }
+
+
 
         public string NameX { get; set; }
 

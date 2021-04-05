@@ -17,7 +17,7 @@ namespace WpfGraph
         public static double[] VectorY; 
         public string pathName;
 
-        public List<Content> contents = new List<Content>();
+        public static List<Content> contents = new List<Content>();
         public Content() { }
 
         private int Separator(string[] message, int numberRow, char element, int numberElement)
@@ -54,7 +54,7 @@ namespace WpfGraph
 
 
 
-        public List<Content> ReadCSV(string fileName, string headerX, string headerY)
+        public List<Content> ReadCSV(string fileName, string headerX, string headerY, char delimeter)
         {
             // We change file extension here to make sure it's a .csv file.
             // TODO: Error checking.
@@ -63,9 +63,6 @@ namespace WpfGraph
             // lines.Select allows me to project each line as a Person. 
             // This will give me an IEnumerable<Person> back.
 
-
-            
-            
             //string headerX = "Freq";
             // string headerY = "L";
             int indexHeaderX = 0;
@@ -110,7 +107,7 @@ namespace WpfGraph
             string[] dataX = new string[indexHeaderX2 - indexHeaderX];
             for (int i = indexHeaderX; i < indexHeaderX2; i++)
             {
-                dataX[counterData] = ";" + data[i];
+                dataX[counterData] = delimeter + data[i];
                 counterData++;
             }
 
@@ -125,7 +122,7 @@ namespace WpfGraph
                         break;
                 }
 
-                if (dataX[0][i] == ';')
+                if (dataX[0][i] == delimeter)
                     counterSeparatorHeader++;
             }
 
@@ -134,8 +131,8 @@ namespace WpfGraph
             for (int i = 1; i < dataX.Length; i++)
             {
 
-                int numberElementStart = Separator(dataX, i, ';', counterSeparatorHeader);
-                int numberElementEnd = Separator(dataX, i, ';', counterSeparatorHeader + 1) - numberElementStart;
+                int numberElementStart = Separator(dataX, i, delimeter, counterSeparatorHeader);
+                int numberElementEnd = Separator(dataX, i, delimeter, counterSeparatorHeader + 1) - numberElementStart;
                 vectorX[counterVector] = Convert.ToDouble(dataX[i].Substring(numberElementStart + 1, numberElementEnd - 1));
                 counterVector++;
             }
@@ -159,15 +156,15 @@ namespace WpfGraph
                         break;
                 }
 
-                if (dataY[0][i] == ';')
+                if (dataY[0][i] == delimeter)
                     counterSeparatorHeader++;
             }
             counterVector = 0;
             double[] vectorY = new double[dataY.Length - 1];
             for (int i = 1; i < dataY.Length; i++)
             {
-                int numberElementStart = Separator(dataY, i, ';', counterSeparatorHeader);
-                int numberElementEnd = Separator(dataY, i, ';', counterSeparatorHeader + 1) - numberElementStart;
+                int numberElementStart = Separator(dataY, i, delimeter, counterSeparatorHeader);
+                int numberElementEnd = Separator(dataY, i, delimeter, counterSeparatorHeader + 1) - numberElementStart;
                 vectorY[counterVector] = Convert.ToDouble(dataY[i].Substring(numberElementStart + 1, numberElementEnd - 1));
                 counterVector++;
             }
