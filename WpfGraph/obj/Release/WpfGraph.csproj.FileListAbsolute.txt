@@ -10,8 +10,9 @@ C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\bin\Release\OxyPlot.Windo
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\bin\Release\OxyPlot.WindowsForms.xml
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\bin\Release\OxyPlot.Wpf.pdb
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\bin\Release\OxyPlot.Wpf.xml
-C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.csprojAssemblyReference.cache
+C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\ConfigureGraphWindow.baml
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\App.baml
+C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\ConfigureGraphWindow.g.cs
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\Graph.g.cs
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\MainWindow.g.cs
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\App.g.cs
@@ -27,3 +28,4 @@ C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.cspr
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.csproj.CopyComplete
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.exe
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.pdb
+C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.csprojAssemblyReference.cache

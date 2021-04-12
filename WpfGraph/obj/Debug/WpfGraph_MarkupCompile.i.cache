@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\obj\Debug\
+C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Debug\
 WpfGraph
 none
 false
 DEBUG;TRACE
-C:\Users\Vasiliy\Desktop\Git\wpf-graph-csv-main\WpfGraph\App.xaml
-2-997033902
+C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\App.xaml
+3531919337
 
-13-389352121
-17-597067271
-Graph.xaml;MainWindow.xaml;
+14-61842476
+17443813492
+ConfigureGraphWindow.xaml;Graph.xaml;MainWindow.xaml;
 
-True
+False
 

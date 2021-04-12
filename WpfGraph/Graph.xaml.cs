@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using OxyPlot.Axes;
 namespace WpfGraph
 {
     /// <summary>
@@ -24,9 +24,8 @@ namespace WpfGraph
     public partial class Graph : Window
     {
 
-    
         public Graph()
-        {       
+        {
             InitializeComponent();
         }
 
@@ -60,6 +59,10 @@ namespace WpfGraph
             if (saveFileDialog.ShowDialog() == true)
             {
                 p.pathName = saveFileDialog.FileName;
+            
+                //Plot.Axes.Add(new OxyPlot.Wpf.LinearAxis { Position = AxisPosition.Bottom, Title = "x-title"  });
+                // Plot.Axes.Add(new OxyPlot.Wpf.LinearAxis { Position = AxisPosition.Left, Title = "y-title" });
+                // Plot.Title = p.pathName;
                 Plot.SaveBitmap(p.pathName, 960, 540, OxyColor.FromRgb(255, 255, 255));
             }
             
@@ -69,15 +72,18 @@ namespace WpfGraph
 
 
 
-    public class MainViewModel
+    public class MainViewModel 
     {
-
+        
         public MainViewModel()
         {
             //   MainViewModel model = new MainViewModel();
             //PersonBuilder person = new PersonBuilder();
-            this.Title = "График";
-            this.NameX = "x";
+            //this.Title = "График";
+
+            this.Title = ConfigureGraphWindow.NameGraph;
+            AxisNameX = ConfigureGraphWindow.NameX;
+            AxisNameY = ConfigureGraphWindow.NameY;
             //this.Points = new List<DataPoint> { new DataPoint(Content.VectorX[0], Content.VectorY[0]) };
             Points = new List<DataPoint>();
 
@@ -110,9 +116,11 @@ namespace WpfGraph
         }
         */
 
-        public string Title { get; private set; }
+        public string Title { get;  set; }
+        public string AxisNameX { get; set; }
+        public string AxisNameY { get; set; }
 
-       public IList<DataPoint> Points { get;   private set; }
+        public IList<DataPoint> Points { get;   private set; }
 
 
 

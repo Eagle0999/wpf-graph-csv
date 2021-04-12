@@ -27,12 +27,12 @@ namespace WpfGraph
     public partial class MainWindow : Window
     {
         public char delimeter;
-        
+
+      
         public MainWindow()
         {
             //MainViewModel model = new MainViewModel();
             //Person person = new Person();
-
             InitializeComponent();
           
         }
@@ -58,40 +58,60 @@ namespace WpfGraph
             Application.Current.Shutdown();
         }
 
-
+        private void test()
+        {
+            try
+            {
+                ConfigureGraphWindow configureGraphWindow = new ConfigureGraphWindow();
+                configureGraphWindow.Show();
+            }
+            catch { MessageBox.Show("Укажите путь к файлу .csv"); }
+        }
    
         private void BtnGraphClick(object sender, RoutedEventArgs e)
         {
 
-             try
-                 {
-                     Graph graphWindow = new Graph();
-                     graphWindow.Show();
+            /*try
+                {
+                    Graph graphWindow = new Graph();
+                    graphWindow.Show();
 
-                 }
-                 catch { MessageBox.Show("Укажите путь к файлу .csv"); }
+                }
+                catch { MessageBox.Show("Укажите путь к файлу .csv"); }
+             */
+            try
+               {
+               ConfigureGraphWindow configureGraphWindow = new ConfigureGraphWindow();
+               configureGraphWindow.Show();
+               }
+            catch { MessageBox.Show("Укажите путь к файлу .csv"); }
 
-        }
+            
 
-        private void DelimeterListSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+       }
 
-            // textDelimeter.Text = delimeterList.SelectedIndex.ToString();
-            int separator = delimeterList.SelectedIndex;
-            switch(separator)
-            {
-                case 0:
-                    delimeter = Convert.ToChar(semicolon.Text);
-                    break;
-                case 1:
-                    delimeter = Convert.ToChar(comma.Text);
-                    break;
-            }
-        }
+       private void DelimeterListSelectionChanged(object sender, SelectionChangedEventArgs e)
+       {
 
-        
-    }
+           // textDelimeter.Text = delimeterList.SelectedIndex.ToString();
+           int separator = delimeterList.SelectedIndex;
+           switch(separator)
+           {
+               case 0:
+                   delimeter = Convert.ToChar(semicolon.Text);
+                   break;
+               case 1:
+                   delimeter = Convert.ToChar(comma.Text);
+                   break;
+               default:
+                   delimeter = Convert.ToChar(comma.Text);
+                   break;
+           }
+       }
 
-  }
+
+   }
+
+ }
 
 
