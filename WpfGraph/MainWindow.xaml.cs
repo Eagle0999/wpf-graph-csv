@@ -24,6 +24,8 @@ namespace WpfGraph
     /// <summary>
     /// Логика взаимодействия для Graph.xaml
     /// </summary>
+
+
     public partial class MainWindow : Window
     {
         public char delimeter;
@@ -41,13 +43,16 @@ namespace WpfGraph
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             Content p = new Content();
+            ListViewPeople.ItemsSource = null;
+            ListViewPeople.Items.Clear();
+
             if (openFileDialog.ShowDialog() == true)
             {
                 p.pathName = openFileDialog.FileName;
                 ListViewPeople.ItemsSource = p.ReadCSV(p.pathName, textHeaderX.Text, textHeaderY.Text, delimeter);
-
+                
             }
-
+            
         }
 
 
@@ -85,10 +90,10 @@ namespace WpfGraph
                configureGraphWindow.Show();
                }
             catch { MessageBox.Show("Укажите путь к файлу .csv"); }
-
             
 
-       }
+
+        }
 
        private void DelimeterListSelectionChanged(object sender, SelectionChangedEventArgs e)
        {

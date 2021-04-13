@@ -4,7 +4,7 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local1="clr-namespace:WpfGraph"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="График" MinHeight="700" MinWidth="800"   WindowStyle="ThreeDBorderWindow" >
+        Title="График" MinHeight="500" MinWidth="600"   WindowStyle="ThreeDBorderWindow" >
     <Window.DataContext>
         <local1:MainViewModel/>
     </Window.DataContext>
@@ -20,17 +20,17 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions >
-                <ColumnDefinition Width="38*" />
-                <ColumnDefinition Width="685*" />
+                <ColumnDefinition Width="37*" />
+                <ColumnDefinition Width="686*" />
                 <ColumnDefinition Width="37*" />
             </Grid.ColumnDefinitions>
 
 
 
-            <oxy:Plot Grid.Column="1" Grid.RowSpan="3" Title="{Binding Title}" x:Name="Plot" TitlePadding="8" TitleFontSize="24"  >
+            <oxy:Plot Grid.Column="1" Grid.RowSpan="3" Title="{Binding Title}" x:Name="Plot" TitlePadding="8" TitleFontSize="24" Padding=" 10 10 40 10 " >
                 <oxy:Plot.Axes>
-                    <oxy:LinearAxis Position="Bottom"  TitleFontSize="24" Title="{Binding AxisNameX}" FontSize="18" TitleFontWeight="Black" AxisDistance="8" MinorGridlineStyle="Solid" MinorTickSize="8" MinorGridlineThickness="1"  MinorGridlineColor="Blue" />
-                    <oxy:LinearAxis Title="{Binding AxisNameY}" FontSize="18"  TitleFontSize="24" TitleFontWeight="Black" AxisDistance="25" MinorGridlineStyle="Solid" MinorTickSize="8" MinorGridlineThickness="1" MinorGridlineColor="Blue" />
+                    <oxy:LinearAxis Position="Bottom"  TitleFontSize="24" Title="{Binding AxisNameX}" FontSize="18" TitleFontWeight="Black" AxisDistance="8"   MajorGridlineStyle="Solid" MajorGridlineColor="Blue" MajorTickSize="15" MinorTickSize="7" />
+                    <oxy:LinearAxis Title="{Binding AxisNameY}" FontSize="18"  TitleFontSize="24" TitleFontWeight="Black" AxisDistance="19" MajorGridlineStyle="Solid" MajorGridlineColor="Blue" MajorTickSize="15" MinorTickSize="7"   />
                 </oxy:Plot.Axes>
                 <oxy:Plot.Series >
                     <oxy:LineSeries ItemsSource="{Binding Points}" Color="Green"  MarkerType="Circle" MarkerFill="Black" MarkerSize="5" StrokeThickness="4" />

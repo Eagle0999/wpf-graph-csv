@@ -11,6 +11,7 @@ namespace WpfGraph
 {
    class Content : MainWindow
     {
+        public int numberPoint { get; set; }
         public  double vectorX2 { get; set; }
         public  double vectorY2 { get; set; }
         public static double[] VectorX;
@@ -59,10 +60,12 @@ namespace WpfGraph
             // We change file extension here to make sure it's a .csv file.
             // TODO: Error checking.
             // string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
-            string[] data = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
+            string[] data = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"), Encoding.Default);
             // lines.Select allows me to project each line as a Person. 
             // This will give me an IEnumerable<Person> back.
-
+            VectorX = null;
+            VectorY = null;
+            contents.Clear();
             //string headerX = "Freq";
             // string headerY = "L";
             int indexHeaderX = 0;
@@ -172,7 +175,7 @@ namespace WpfGraph
 
             for (int i = 0; i < vectorX.Length; i++)
             {
-                contents.Add(new Content() { vectorX2 = vectorX[i], vectorY2 = vectorY[i]});
+                contents.Add(new Content() { vectorX2 = vectorX[i], vectorY2 = vectorY[i], numberPoint = i+1});
             }
             VectorX = vectorX;
             VectorY = vectorY;

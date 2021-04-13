@@ -25,10 +25,10 @@
 
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Background="Gold">
             <Label x:Name="label" Content="Кнопки управления" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="21" FontWeight="Bold" />
-            <Button x:Name="BtnPath" Click="BtnPathClick"   Content="Путь к файлу" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="28"  Width="102" Margin="0,18,0,10"  />
-            <Button x:Name="BtnGraph" Click="BtnGraphClick" Content="Настроить график" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="28"  Width="140" Margin="0,10,0,0" />
+            <Button x:Name="BtnPath" Click="BtnPathClick"   Content="Путь к файлу" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40"  Width="150" Margin="0,18,0,10"  />
+            <Button x:Name="BtnGraph" Click="BtnGraphClick" Content="Настроить график" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40"  Width="160" Margin="0,10,0,0" />
             <Label x:Name="label5" Content="Разделитель элементов списка" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,30,0,0" />
-            <ComboBox Name="delimeterList" Height="30" Width="200" SelectedIndex="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8,0,0" Background="White" SelectionChanged="DelimeterListSelectionChanged">
+            <ComboBox Name="delimeterList" Height="30" Width="200" SelectedIndex="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8,0,0" Background="White" SelectionChanged="DelimeterListSelectionChanged">
                 <TextBlock x:Name="semicolon">;</TextBlock>
                 <TextBlock x:Name="comma">,</TextBlock>
             </ComboBox>
@@ -38,9 +38,10 @@
         <Label x:Name="label2" Grid.Column="1" Grid.Row="0" Content="      Данные из таблицы" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" FontWeight="Bold" Height="48" Margin="90,0,78,0" Width="286" />
         <ListView  Grid.Column="1" Grid.RowSpan="3" x:Name="ListViewPeople" Background="LightGray" Margin="0,56,0,0">
             <ListView.View>
-                <GridView >
-                    <GridViewColumn x:Name="ElementX" Header="Vector X" Width="200"  DisplayMemberBinding="{Binding Path=vectorX2}"/>
-                    <GridViewColumn x:Name="ElementY" Header="Vector Y" Width="200"  DisplayMemberBinding="{Binding Path=vectorY2}"/>
+                <GridView  x:Name="gridView1">
+                    <GridViewColumn x:Name="NumberPoint" Header="№ точки" Width="130"  DisplayMemberBinding="{Binding Path=numberPoint}"/>
+                    <GridViewColumn x:Name="ElementX" Header="Vector X" Width="130"  DisplayMemberBinding="{Binding Path=vectorX2}"/>
+                    <GridViewColumn x:Name="ElementY" Header="Vector Y" Width="146"  DisplayMemberBinding="{Binding Path=vectorY2}"/>
                 </GridView>
             </ListView.View>
         </ListView>

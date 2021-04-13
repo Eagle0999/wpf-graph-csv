@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="Настройка графика" WindowStyle="ThreeDBorderWindow" MinWidth="350"  MaxWidth="350"  MinHeight="200" MaxHeight="200" >
+	Title="Настройка графика" WindowStyle="ThreeDBorderWindow" MinWidth="450"  MaxWidth="450"  MinHeight="300" MaxHeight="300" Background="LightGray" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -18,13 +18,17 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="Название оси графика по X:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox x:Name="TextBoxNameX" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="150" />
-        <Label x:Name="label2" Content="Название оси графика по Y:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox x:Name="TextBoxNameY" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="150" />
-        <Label x:Name="label3" Content="Название графика:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox x:Name="HeaderNameGraph" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="150" />
-        <Button x:Name="btnGraphBuilder" Content="Построить график" Grid.Column="0" Grid.Row="3"  HorizontalAlignment="Center"   VerticalAlignment="Center" Click="BtnGraphBuilderClick"  />
+        
+        <Label x:Name="label" FontSize="15" Content="Название оси графика по X:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox x:Name="TextBoxNameX" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="180" Height="35"   />
+        
+        <Label x:Name="label2" FontSize="15"  Content="Название оси графика по Y:" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox x:Name="TextBoxNameY" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="180" Height="35"  />
+        
+        <Label x:Name="label3" FontSize="15"  Content="Название графика:" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox x:Name="HeaderNameGraph" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"   VerticalAlignment="Center" Width="180" Height="35"  />
+        
+        <Button x:Name="btnGraphBuilder" FontSize="14" Content="Построить график" Grid.Column="0" Grid.Row="3"  HorizontalAlignment="Center"   VerticalAlignment="Center" Click="BtnGraphBuilderClick" Height="35"  Width="150"  />
 
     </Grid>
 </Window>

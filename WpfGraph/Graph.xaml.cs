@@ -93,9 +93,11 @@ namespace WpfGraph
                    // Content.VectorY[0] = minY;
                     this.Points.Add(new DataPoint(Content.VectorX[i], Content.VectorY[i]));
                 }
-                
-            
-        
+
+            //Content.VectorX = null;
+          //  Content.VectorY = null;
+
+
         }
 
         /*

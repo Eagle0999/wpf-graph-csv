@@ -28,4 +28,3 @@ C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.cspr
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.csproj.CopyComplete
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.exe
 C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.pdb
-C:\Users\Eagle\Desktop\Projects\wpf-graph-csv\WpfGraph\obj\Release\WpfGraph.csprojAssemblyReference.cache
